@@ -1,0 +1,314 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1 {
+    font-size:2em;
+    font-weight:300;
+    margin:0px;
+    overflow:visible;
+}
+
+h2 {
+    font-size:1.35em;
+    font-weight:300;
+    margin:0px;
+    overflow:visible;
+}
+
+@font-face {
+    font-family: futura;
+    src: url('../res/Futura.ttf') format('truetype');
+}
+
+.splash {
+    text-align: center;
+    font-family: futura;
+}
+
+body {
+    color: #eee;
+}
+
+h1, h2, h3, h4, h5, p, a, div, span {
+    font-family: futura;
+}
+
+.status {
+    background-color:#333333;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:1em;
+    margin:0px auto;
+    padding:2px 10px;
+    text-align:center;
+    width:100%;
+    max-width:175px;
+}
+
+.status.complete {
+    background-color:#4B946A;
+}
+
+.hide {
+    display:none;
+}
+
+/* portrait */
+/* @media screen and (max-aspect-ratio: 1/1) */
+.app {
+    background-position:center top;
+    height:100px;              /* adds enough room for text */
+    padding:180px 0px 0px 0px; /* background height - shadow offset */
+}
+
+/* lanscape (when wide enough) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:445px) {
+    .app {
+        background-position:left center;
+        height:140px;       /* height + padding = background image size */
+        padding-left:170px; /* background width */
+        padding-top:60px;   /* center the text */
+    }
+}
+
+/* nav icons
+ *************************************************/
+.navicons .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+.navicons .ui-btn .ui-icon { 
+    width: 30px!important;
+    height: 30px!important;
+    margin-left: -15px !important;
+    box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    -webkit-border-radius:
+    0 !important;
+    border-radius: 0 !important;
+}
+
+.btn-box {
+    padding-top: 40px !important;
+    width: 30px!important;
+    height: 30px!important;
+}
+
+#feed-btn .ui-icon {
+    background:  url(../img/icons/friends.png) 50% 50% no-repeat;
+    background-size: 32px 21px;
+}
+
+#unlock-btn .ui-icon {
+    background: url(../img/icons/trophy.png) 50% 50% no-repeat;
+    background-size: 24px 24px;
+}
+
+#profile-btn .ui-icon {
+    background: url(../img/icons/profile.png) 50% 50% no-repeat;
+    background-size: 24px 17px;
+}
+
+.ui-icon-camera-btn  {
+    background: url(../img/icons/camera.png) 50% 50% no-repeat;
+    background-size: 24px 18px;
+    width: 30px!important;
+    height: 15px!important;
+    box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    -webkit-border-radius:
+    0 !important;
+    border-radius: 0 !important;
+}
+
+.ui-icon-check-in-btn  {
+    background: url(../img/icons/checkin.png) 50% 50% no-repeat;
+    background-size: 12px 22px;
+    margin-top: -10px;
+    width: 30px!important;
+    height: 30px!important;
+    box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    -webkit-border-radius:
+    0 !important;
+    border-radius: 0 !important;
+}
+
+/* Feed styles
+ *************************************************/
+.feed-item {
+    border-top: solid 1px #888;
+    color: #eee;
+    background-color: #575757;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#363636), to(#575757));
+    background-image: -webkit-linear-gradient(top, #363636, #575757);
+    background-image:    -moz-linear-gradient(top, #363636, #575757);
+    background-image:     -ms-linear-gradient(top, #363636, #575757);
+    background-image:      -o-linear-gradient(top, #363636, #575757);
+    background-image: linear-gradient(#363636, #575757);
+    -webkit-border-radius: 7px;
+    border-radius: 5px; /* future proofing */
+    padding: 5px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 2px 2px 4px 2px #333;
+    box-shadow:         2px 2px 4px 2px #333;
+}
+
+.feed-banner {
+    float: left;
+}
+
+.feed-details {
+    margin-left: 110px;
+    margin-bottom: 5px;
+    height: 50px;
+}
+
+.feed-acheevo, .feed-points {
+    font-size: .75em;
+    color: #bbb;
+}
+
+.feed-display {
+    margin-top: 5px;
+}
+
+.interact-area {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    border-top: 1px dashed #999;
+}
+
+.feed-social {
+    float: right;
+}
+
+.feed-social span {
+    margin-left: 15px;
+}
+
+/* Unlock section styles
+ *************************************************/
+.unlock-badge {
+    float: left;
+}
+
+.unlock-info {
+    padding-top: 10px;
+    margin-left: 75px;
+}
+
+.unlock-title {
+    white-space: normal;
+}
+
+.unlock-details {
+    color: #333;
+    background-color: #bbb;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bbb), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #bbb, #ddd);
+    background-image:    -moz-linear-gradient(top, #bbb, #ddd);
+    background-image:     -ms-linear-gradient(top, #bbb, #ddd);
+    background-image:      -o-linear-gradient(top, #bbb, #ddd);
+    background-image: linear-gradient(#bbb, #ddd);
+    -webkit-border-radius: 7px;
+    border-radius: 5px; /* future proofing */
+    padding: 5px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 2px 2px 4px 2px #333;
+    box-shadow:         2px 2px 4px 2px #333;
+}
+
+.unlock-controls {
+    clear: both;
+}
+
+/* Custom JQmobile styles ... this is dumb
+ *************************************************/
+.a-grid {
+    overflow: hidden;
+}
+
+/* The JQMobile grid isnt very flexible, adding a ghetto
+ * pseudo bootstrap style row/span layout setup.
+ * Given small screen sizes, this will be a 6 wide 
+ * grid, so as long as the rows add up to 6 you are golden.
+ *************************************************/
+.row {
+    clear: both;
+    margin-bottom: 9px;
+    display: block;
+    width: 100%;
+}
+
+.span1 {
+    width: 16.66%;
+}
+
+.span2 {
+    width: 33.33%;
+}
+
+.span3 {
+    width: 50%;
+}
+
+.span4 {
+    width: 66.66%;
+}
+
+.span5 {
+    width: 83.33%;
+}
+
+.span6 {
+    width: 100%;
+}
+
+.span1, .span2, .span3, span4, .span5, .span6 {
+    display: block;
+    float: left;
+}
