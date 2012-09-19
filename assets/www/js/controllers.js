@@ -112,15 +112,28 @@ function DiabloController($scope, $log, $http, $rootScope, appConstants) {
         var accountEliteKills = $.jqplot('accountEliteKills', [data["account_elite_kills"]], {
             // Only animate if we're not using excanvas (not in IE 7 or IE 8)..
             animate: !$.jqplot.use_excanvas,
+            title: "Account Elite Kills",
+            seriesColors : ["#CC0000"],
             seriesDefaults:{
                 renderer:$.jqplot.BarRenderer,
                 pointLabels: {
-                    show: true
+                    show: false
+                },
+                renderOptions : {
+                    barWidth : 8,
+                    barMargin : 0,
+                    barPadding : 0
                 }
             },
             axes: {
                 xaxis: {
-                    renderer: $.jqplot.CategoryAxisRenderer
+                    renderer: $.jqplot.CategoryAxisRenderer,
+                    tickOptions : {
+
+                    },
+                    renderOptions : {
+                        barWidth : 5
+                    }
                 }
             },
             highlighter: {
@@ -131,15 +144,28 @@ function DiabloController($scope, $log, $http, $rootScope, appConstants) {
         var accountProgress = $.jqplot('accountProgress', [data["account_progress"]], {
             // Only animate if we're not using excanvas (not in IE 7 or IE 8)..
             animate: !$.jqplot.use_excanvas,
+            title: "Account Progress",
+            seriesColors : ["#CC0000"],
             seriesDefaults:{
                 renderer:$.jqplot.BarRenderer,
                 pointLabels: {
-                    show: true
-                }
+                    show: false
+                },
+                renderOptions : {
+                    barWidth : 8,
+                    barMargin : 0,
+                    barPadding : 0
+                },
+                shadow : false
             },
             axes: {
                 xaxis: {
-                    renderer: $.jqplot.CategoryAxisRenderer
+                    renderer: $.jqplot.CategoryAxisRenderer,
+                    tickOptions : {
+                        showLabel : false,
+                        show: false
+                    }
+                    
                 }
             },
             highlighter: {
