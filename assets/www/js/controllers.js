@@ -102,13 +102,59 @@ function DiabloController($scope, $log, $http, $rootScope, appConstants) {
     }
 
 
-    $scope.rootAffixMenu = ["Cancel", "Primary Attributes", "Life Gain", "Adventuring", "Class Resource Bonus","Skill Bonus"]
+    $scope.rootAffixMenu = ["Adventuring", "Basic Item Stats","Defensive Stats","Offensive Stats","Primary Attributes", "Class Resource Bonus","Skill Bonus", "Cancel"]
     $scope.primaryAttributesMenu = ["Back", "Strength", "Dexterity", "Intelligence", "Vitality", "Cancel"];
+    $scope.lifeGain = ["Back", "Health from Globes","Life per Spirit Spent", "Life per Fury Spent","Life Regen", "Life on Hit", "Life Steal", "Cancel"];
+    $scope.resourceBonus = ["Back", "Arcane Power on Crit", "Hatred Regen", "Mana Regen", "Max Arcane Power", "Max Discipline", "Max Fury", "Max Mana", "Spirit Regen", "Cancel"];
+    $scope.basicItemStats = ["Back", "Armor", "Block Chance","DPS", "Cancel"];
+    $scope.adventuring = ["Back","Bonus to XP","Gold Find", "Magic Find", "Movement Bonus", "Pickup Radius", "Reduced Level", "Cancel"];
+    $scope.procEffect = ["Back", "Blind Chance","Chill Chance","Fear Chance","Freeze Chance","Immobilize Chance","Knockback Chance","Slow Chance", "Stun Chance","Cancel"];
+    $scope.offensiveEffects = ["Back", "Attack Speed Increase","Crit Chance","Crit Damage Bonus","Elite Damage Bonus","Proc Effects","Cancel"];
+    $scope.defensiveEffects = ["Back", "Crowd Control Reduction","Life Gain","Reduced Melee Damage","Reduced Range Damage","Resistances","Cancel"];
+
+
 
     $scope.affixMap["root"] = $scope.rootAffixMenu;
     $scope.affixMap["Primary Attributes"] = $scope.primaryAttributesMenu;
+    $scope.affixMap["Basic Item Stats"] = $scope.basicItemStats;
+    $scope.affixMap["Defensive Stats"] = $scope.defensiveEffects;
+    $scope.affixMap["Offensive Stats"] = $scope.offensiveEffects;
+    $scope.affixMap["Class Resource Bonus"] = $scope.resourceBonus;
+    $scope.affixMap["Life Gain"] = $scope.lifeGain;
+    $scope.affixMap["Proc Effects"] = $scope.procEffect;
+    $scope.affixMap["Adventuring"] = $scope.adventuring;
 
     $scope.createCharts = function(data){
+        var accountParagonLevels= $.jqplot('accountParagonLevel', [data["account_paragon_levels"]], {
+            // Only animate if we're not using excanvas (not in IE 7 or IE 8)..
+            animate: !$.jqplot.use_excanvas,
+            title: "Account Paragon Levels",
+            seriesColors : ["#CC0000"],
+            seriesDefaults:{
+                renderer:$.jqplot.BarRenderer,
+                pointLabels: {
+                    show: false
+                },
+                rendererOptions : {
+                    barWidth : 12,
+                    barMargin : 0,
+                    barPadding : 0
+                }
+            },
+            axes: {
+                xaxis: {
+                    renderer: $.jqplot.CategoryAxisRenderer,
+                    tickOptions : {
+
+                    }
+                }
+            },
+            highlighter: {
+                show: false
+            }
+        });
+
+
         var accountEliteKills = $.jqplot('accountEliteKills', [data["account_elite_kills"]], {
             // Only animate if we're not using excanvas (not in IE 7 or IE 8)..
             animate: !$.jqplot.use_excanvas,
@@ -119,7 +165,7 @@ function DiabloController($scope, $log, $http, $rootScope, appConstants) {
                 pointLabels: {
                     show: false
                 },
-                renderOptions : {
+                rendererOptions : {
                     barWidth : 8,
                     barMargin : 0,
                     barPadding : 0
@@ -130,9 +176,6 @@ function DiabloController($scope, $log, $http, $rootScope, appConstants) {
                     renderer: $.jqplot.CategoryAxisRenderer,
                     tickOptions : {
 
-                    },
-                    renderOptions : {
-                        barWidth : 5
                     }
                 }
             },
@@ -151,8 +194,8 @@ function DiabloController($scope, $log, $http, $rootScope, appConstants) {
                 pointLabels: {
                     show: false
                 },
-                renderOptions : {
-                    barWidth : 8,
+                rendererOptions : {
+                    barWidth : 10,
                     barMargin : 0,
                     barPadding : 0
                 },
